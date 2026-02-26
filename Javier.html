@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil_Javier_2026.xlsx</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f3f3;
+}
+
+/* Barra superior estilo Excel */
+.topbar {
+    background: #107c41;
+    color: white;
+    padding: 12px 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar span {
+    opacity: 0.9;
+}
+
+/* Barra de fórmula */
+.formula-bar {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+.formula-bar input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+/* Tabla tipo Excel */
+.sheet {
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    background: white;
+    margin: 20px;
+}
+
+th, td {
+    border: 1px solid #e1e1e1;
+    padding: 8px 12px;
+    min-width: 10px;
+    height: 28px;
+    font-size: 14px;
+}
+
+th {
+    background: #f8f8f8;
+    font-weight: 600;
+    text-align: center;
+}
+
+.row-header {
+    background: #f8f8f8;
+    text-align: center;
+    font-weight: 500;
+    width: 20px;
+}
+
+td:hover {
+    outline: 2px solid #107c41;
+    cursor: cell;
+}
+
+/* Botón macro */
+.macro-btn {
+    background: #107c41;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+}
+
+.macro-btn:hover {
+    background: #0e6e39;
+}
+
+/* MODAL */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none; /* oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    color: #111;
+    text-align: left;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal h2 {
+    margin-top: 0;
+    color: #107c41;
+}
+
+.modal button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #107c41;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modal button:hover {
+    background: #0e6e39;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+    <div>Perfil_Javier_2026.xlsx</div>
+    <span>Guardado en OneDrive</span>
+</div>
+
+<div class="formula-bar">
+    fx&nbsp;
+    <input type="text" value="=SUMA(negociaciones_exitosas)">
+</div>
+
+<div class="sheet">
+<table>
+    <tr>
+        <th></th>
+        <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>
+    </tr>
+
+    <tr>
+        <td class="row-header">1</td>
+        <td>Nombre</td>
+        <td>Javier Jimarez</td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">2</td>
+        <td>Edad</td>
+        <td>24</td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">3</td>
+        <td>Cargo</td>
+        <td>Auxiliar Administrativo</td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">5</td>
+        <td>Proveedores gestionados</td>
+        <td>48</td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">6</td>
+        <td>Órdenes de compra procesadas</td>
+        <td>320</td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">7</td>
+        <td>Ahorro generado</td>
+        <td>$1,250,000.00</td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">9</td>
+        <td>Facturas revisadas</td>
+        <td>✅ Todas</td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">10</td>
+        <td>Cotizaciones comparadas</td>
+        <td>Ya perdí la cuenta</td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">11</td>
+        <td>Ejecuta el macro ⬇️⬇️⬇️</td>
+        <td></td>
+        <td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+        <td class="row-header">12</td>
+        <td class="macro-btn" onclick="ejecutarMacro()">Ejecutar Macro</td>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+
+</table>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+    <div class="modal">
+        <h2>✅ Proceso completado</h2>
+        <p>
+            Javier optimizó otro presupuesto.<br><br>
+            Esammd...!! jaja Ntc, amigo gracias por tu amistad y por tu apoyo, siempre altruista. Qué bueno que seas así, pocas personas como tú, continúa así por siempre.
+        </p>
+        <button onclick="cerrarModal()">Cerrar</button>
+    </div>
+</div>
+
+<script>
+function ejecutarMacro() {
+    document.getElementById("modal").style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

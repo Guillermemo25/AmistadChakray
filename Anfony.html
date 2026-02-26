@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Exclusivo</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #0d0d0d;
+        color: white;
+    }
+
+    header {
+        background: #000;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-family: 'Anton', sans-serif;
+        font-size: 28px;
+        color: #ffaa33;
+        letter-spacing: 1px;
+    }
+
+    header button {
+        padding: 10px 20px;
+        background: #ffaa33;
+        border: none;
+        border-radius: 5px;
+        color: #000;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    header button:hover {
+        background: #ffcc00;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        background: #1a1a1a;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 153, 0, 0.5);
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        filter: blur(8px);
+        transition: filter 0.3s ease;
+    }
+
+    .card:hover img {
+        filter: blur(4px);
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ff9900;
+        margin-bottom: 8px;
+    }
+
+    .card-desc {
+        font-size: 14px;
+        color: #ccc;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 13px;
+        color: #666;
+        border-top: 1px solid #222;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.85);
+        display: none; /* oculto por defecto */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal {
+        background: #1a1a1a;
+        padding: 30px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 0 25px rgba(255,153,0,0.6);
+        animation: fadeIn 0.4s ease;
+    }
+
+    .modal h2 {
+        color: #ff9900;
+        margin-bottom: 15px;
+    }
+
+    /* espacio editable en lugar de textarea */
+    #userMessage {
+        width: 100%;
+        min-height: 120px;
+        background: #222;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: left;
+        overflow-y: auto;
+        outline: none;
+        font-size: 14px;
+    }
+
+    .modal button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #ff9900;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .modal button:hover {
+        background: #ffaa33;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: scale(0.9);}
+        to {opacity: 1; transform: scale(1);}
+    }
+</style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+    <div class="modal">
+        <h2>Feliz día amigo...!!</h2>
+        <div id="userMessage" contenteditable="true">
+Que onda my dog, primero que nada, el buenos días de todos los días: "Tengo ganas de #093r". Segundo: Gracias por todo, es un gusto trabajar contigo, espero podamos seguir colaborando por mucho más tiempo. Y tercero: Seguro si buscabas registrarte, nmmsss
+        
+        </div>
+        <br>
+        <button onclick="submitMessage()">Continuar</button>
+    </div>
+</div>
+
+<header>
+    <h1>BRZRS</h1>
+    <button onclick="openModal()">Registrarme</button>
+</header>
+
+<div class="container">
+    <div class="card">
+        <img src="https://picsum.photos/400/300?random=1" alt="preview">
+        <div class="card-content">
+            <div class="card-title">Esto no es bueno</div>
+            <div class="card-desc">Tal vez deberías pensarlo dos veces...</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/400/300?random=2" alt="preview">
+        <div class="card-content">
+            <div class="card-title">Dedícate a otra cosa</div>
+            <div class="card-desc">No todo es lo que parece.</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/400/300?random=3" alt="preview">
+        <div class="card-content">
+            <div class="card-title">No deberías estar aquí</div>
+            <div class="card-desc">Advertencia: contenido restringido.</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://picsum.photos/400/300?random=4" alt="preview">
+        <div class="card-content">
+            <div class="card-title">Ponte a chambear</div>
+            <div class="card-desc">Ultima advertencia.</div>
+        </div>
+    </div>
+
+    
+</div>
+<div style="background-color: #ffaa33; color: #201f1f; width: 95%; padding: 10px; text-align: center; font-size: 12px; margin: auto;">
+        Mejor checale ahí arriba en Registrarme 
+        <br>#ModoTherian #FríoElMencho
+    </div>
+<footer>
+    © 2026 Portal Premium
+</footer>
+
+<script>
+function openModal() {
+    document.getElementById("modal").style.display = "flex";
+}
+
+function submitMessage() {
+    const messageDiv = document.getElementById("userMessage");
+    const message = messageDiv.innerText.trim();
+    if(message === "" || message === "Escribe tu mensaje aquí...") {
+        alert("Debes escribir un mensaje para continuar.");
+        return;
+    }
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
