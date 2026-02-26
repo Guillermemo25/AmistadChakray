@@ -38,16 +38,28 @@ body {
     line-height: 1.6;
 }
 
-.btn-primary {
-    background-color: #0d3b66; /* Azul corporativo */
-    border-color: #0d3b66;
-    font-weight: 600;
+/* Estilo de firma */
+.signature-btn {
+    display: inline-block;
+    padding: 0; /* Sin relleno */
+    margin-top: 10px;
+    font-family: 'Pacifico', cursive; /* Letra tipo manuscrita */
+    font-size: 24px;
+    color: #0d3b66;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-    background-color: #0b3458;
-    border-color: #0b3458;
+.signature-btn:hover {
+    color: #0b3458;
+    transform: scale(1.1) rotate(-1deg);
 }
+
+/* Importar fuente manuscrita desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 </style>
 </head>
 <body>
@@ -58,8 +70,9 @@ body {
         Quiero expresarte mi sincero agradecimiento por tu amistad.
         Espero poder contribuir contigo de alguna manera siempre que lo requieras y que sigamos compartiendo buenos momentos juntos. Mientras tanto a seguir disfrutando las #pipshash 🍕🍕
     </p>
-    </p>
-    <a href="#" class="btn btn-primary mt-3">Enviar un saludo</a>
+    <br>
+    Atentamente,
+    <button class="signature-btn" style="font-weight: bold;">JGCC</button>
 </div>
 
 <!-- Bootstrap 5 JS (opcional si quieres componentes interactivos) -->

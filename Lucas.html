@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard de Lucas</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f0f2f5; margin:0; padding:0; }
+  header { background: #2c3e50; color: white; padding: 20px; text-align:center; }
+  .kpi-container { display: flex; justify-content: space-around; margin: 20px; flex-wrap: wrap; }
+  .kpi { background:white; padding:20px; border-radius:10px; width:200px; text-align:center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); margin-bottom: 20px; }
+  .progress-bar { background:#ecf0f1; border-radius:5px; height:20px; margin-top:10px; overflow:hidden; }
+  .progress { height:100%; background:#27ae60; width:0%; transition: width 1s; }
+  .alert { background:#f39c12; color:white; padding:10px; margin:10px auto; border-radius:5px; text-align:center; max-width:500px; }
+  button { padding:10px 20px; margin:20px auto; display:block; border:none; border-radius:5px; background:#2980b9; color:white; cursor:pointer; font-size:16px; }
+  
+  /* Modal */
+  .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); justify-content:center; align-items:center; }
+  .modal-content { background:white; padding:30px; border-radius:10px; max-width:400px; text-align:center; position:relative; }
+  .close { position:absolute; top:10px; right:15px; font-size:20px; cursor:pointer; }
+
+  /* Gráfico */
+  #energyChartContainer { max-width:500px; margin: 0 auto 30px auto; background:white; padding:20px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.2); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Dashboard – Managing Director</h1>
+</header>
+
+<div class="kpi-container">
+  <div class="kpi">
+    <h3>Nivel de café ☕</h3>
+    <div class="progress-bar"><div class="progress" id="coffeeBar">80%</div></div>
+  </div>
+  <div class="kpi">
+    <h3>Reuniones pendientes 📅</h3>
+    <p>999+</p>
+  </div>
+  <div class="kpi">
+    <h3>Correos ignorados ✉️</h3>
+    <p>417</p>
+  </div>
+</div>
+
+<div class="alert">Alerta: ¡Reunión en 2 minutos! 🚨</div>
+
+<button id="thanksBtn">Unirse a la reunión 🎥</button>
+
+<div id="energyChartContainer">
+  <h3>Distribución de Energía ⚡</h3>
+  <canvas id="energyChart"></canvas>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="thanksModal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>Gracias, Lucas!</h2>
+    <p>Quiero aprovechar esta oportunidad para agradecerte por tu liderazgo y la oportunidad de aprender cada día bajo tu guía. Feliz día y a disfrutar de las pizzas 🍕🍕</p>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  // Animación de barra de café
+  window.onload = () => {
+    document.getElementById('coffeeBar').style.width = '80%';
+  }
+
+  // Modal
+  const modal = document.getElementById('thanksModal');
+  const btn = document.getElementById('thanksBtn');
+  const close = document.getElementById('closeModal');
+
+  btn.onclick = () => modal.style.display = 'flex';
+  close.onclick = () => modal.style.display = 'none';
+  window.onclick = e => { if(e.target == modal) modal.style.display = 'none'; }
+
+  // Gráfico de pastel: Distribución de Energía
+  const ctx = document.getElementById('energyChart').getContext('2d');
+  const energyChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Reuniones 📅', 'Café ☕', 'Resolver problemas ⚡', 'Motivar al equipo 😎'],
+      datasets: [{
+        data: [40, 30, 20, 10],
+        backgroundColor: ['#e74c3c', '#f1c40f', '#3498db', '#2ecc71'],
+        borderColor: '#fff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: { callbacks: { label: function(ctx) { return ctx.label + ': ' + ctx.parsed + '%'; } } }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
