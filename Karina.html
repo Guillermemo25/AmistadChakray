@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karina | RH</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8cdda, #fbd3e9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background: #ffffff;
+    width: 90%;
+    max-width: 850px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    padding: 40px;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    background: #f3f3f3;
+    border: 2px dashed #e8a8c5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c27ba0;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.title h1 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #c2185b;
+}
+
+.title h2 {
+    margin: 5px 0 0 0;
+    font-weight: 400;
+    color: #555;
+}
+
+.tagline {
+    margin-top: 10px;
+    font-style: italic;
+    color: #a64d79;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+.section h3 {
+    color: #c2185b;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.skills span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #c2185b;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ad1457;
+    transform: scale(1.05);
+}
+
+/* MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 0.4s ease;
+}
+
+.modal h3 {
+    margin-top: 0;
+    color: #c2185b;
+    font-family: 'Playfair Display', serif;
+}
+
+.modal p {
+    color: #555;
+    margin: 15px 0;
+}
+
+.close-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #c2185b;
+    color: white;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: #ad1457;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #777;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <div class="header">
+        <!-- ESPACIO PARA FOTO -->
+        <div class="photo">
+            <img src="https://img.freepik.com/vector-premium/mujer-negocios-ejecutiva-profesional-ilustracion-vectorial-dibujos-animados_1322553-71121.jpg" alt="Karina">
+            <!-- Aquí irá<br>la foto<br>de Karina 💕 -->
+            <!-- Cuando tengas la foto reemplaza el contenido por:
+            <img src="foto.jpg" alt="Karina">
+            -->
+        </div>
+
+        <div class="title">
+            <h1>Karina Jimarez💖</h1>
+            <h2>Especialista en Recursos Humanos</h2>
+            <div class="tagline">
+                “Contratando talento y organizando sonrisas desde siempre.”
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Sobre mí</h3>
+        <p>
+            Tengo 25 años y trabajo en RH con pasión y empatía.
+            Creo que el verdadero talento no solo se encuentra en un currículum,
+            sino en la actitud, la energía y el corazón de las personas ✨
+        </p>
+    </div>
+
+    <div class="section">
+        <h3>Habilidades</h3>
+        <div class="skills">
+            <span>Empatía: ❤️❤️❤️❤️❤️</span>
+            <span>Organización: 💼💼💼💼💼</span>
+            <span>Elegante: 💅🏻 💅🏻 💅🏻 💅🏻 💅🏻 </span>
+            <span>Detección de talento: 🌟🌟🌟🌟🌟</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Experiencia Destacada</h3>
+        <ul>
+            <li>Reclutando talento con intuición y criterio profesional.</li>
+            <li>Gestionando equipos felices y productivos.</li>
+            <li>Creando ambientes laborales donde todos brillan.</li>
+        </ul>
+    </div>
+
+    <button onclick="abrirModal()">Contrátame 💌</button>
+
+    <div class="footer">
+        © 2026 | Perfil profesional 🌸
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+    <div class="modal">
+        <h3>Decisión Inteligente</h3>
+        <p>
+            Hola Kari, gracias por elegirme y proponerme en el puesto🙏🏻. Prometo no defraudarte, gracias a eso puedo estar aquí el día de hoy comiendo pizza 🍕 como sino hubiera mañana (comiendo mal por cierto, como todos los días 😆 jaja). Gracias por tu apoyo cuando lo he requerido, nunca dices no y eso me es muy grato, una de las razones por las que diría no al home office es para poder seguir estando presente en tus dinámicas, sabes que cuentas conmigo para todo menos para bailar 😝.
+            <br><br>
+            Muchas gracias por todo.
+            <br>P.D. No supe como obtener una foto tuya para poner en este CV 🙁
+        </p>
+        <button class="close-btn" onclick="cerrarModal()">Cerrar</button>
+    </div>
+</div>
+
+<script>
+function abrirModal() {
+    document.getElementById("modal").style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
